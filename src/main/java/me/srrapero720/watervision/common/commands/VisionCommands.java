@@ -25,7 +25,7 @@ import java.net.URI;
 public class VisionCommands {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("playvideo")
-                .requires(source -> !source.isPlayer() || source.hasPermission(4))
+                .requires(source -> !source.isPlayer() || source.hasPermission(0))
                 .then(Commands.argument("url", StringArgumentType.string())
                         .then(Commands.argument("target", EntityArgument.players())
                                 .executes(VisionCommands::openVideoScreen)
@@ -58,13 +58,13 @@ public class VisionCommands {
 
 
         dispatcher.register(Commands.literal("stopvideo")
-                .requires(source -> !source.isPlayer() || source.hasPermission(4))
+                .requires(source -> !source.isPlayer() || source.hasPermission(0))
                 .then(Commands.argument("target", EntityArgument.players())
                         .executes(VisionCommands::stopVideo)
                 )
         );
         dispatcher.register(Commands.literal("playoverlay")
-                .requires(source -> !source.isPlayer() || source.hasPermission(4))
+                .requires(source -> !source.isPlayer() || source.hasPermission(0))
                 .then(Commands.argument("url", StringArgumentType.string())
                         .then(Commands.argument("target", EntityArgument.players())
                                 .executes(VisionCommands::openVideoOverlay)
@@ -73,7 +73,7 @@ public class VisionCommands {
         );
 
         dispatcher.register(Commands.literal("stopoverlay")
-                .requires(source -> !source.isPlayer() || source.hasPermission(4))
+                .requires(source -> !source.isPlayer() || source.hasPermission(0))
                 .then(Commands.argument("target", EntityArgument.players())
                         .executes(VisionCommands::closeVideoOverlay)
                 )
